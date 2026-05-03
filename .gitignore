@@ -1,6 +1,3 @@
-Get-Content .gitignore
-Recurse -Force node_modules -ErrorAction SilentlyContinue
-Recurse -Force .next -ErrorAction SilentlyContinue
-Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue
-1
 node_modules
+.next
+.env
