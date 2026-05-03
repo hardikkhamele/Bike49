@@ -59,7 +59,7 @@ export default function Buy() {
           />
         </div>
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8">
-          <h1 className="text-5xl md:text-7xl font-light text-white mb-6 uppercase tracking-tight drop-shadow-lg">The Collection</h1>
+          <h1 className="text-5xl md:text-7xl font-light text-white mb-6 uppercase tracking-tight drop-shadow-lg">OUR WIDE RANGES FOR YOU</h1>
           <p className="text-[#eef2f6] text-base uppercase tracking-widest font-medium">Browse through our verified collection of two-wheelers.</p>
         </div>
       </div>
