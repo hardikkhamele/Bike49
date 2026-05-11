@@ -219,7 +219,7 @@ export default function AdminPanel() {
                   value={loginId}
                   onChange={(e) => setLoginId(e.target.value)}
                   className="appearance-none rounded relative block w-full px-3 py-3 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#ef6a22] focus:border-[#ef6a22] sm:text-sm"
-                  placeholder="admin@bike49"
+                  placeholder="Enter Username"
                 />
               </div>
               <div>
