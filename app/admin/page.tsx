@@ -298,7 +298,7 @@ export default function AdminPanel() {
                 {Object.entries(stats.cities).map(([city, count]) => (
                   <div key={city} className="bg-gray-50 border border-gray-100 px-4 py-2 rounded-full flex items-center gap-2">
                     <span className="font-medium text-gray-700">{city}</span>
-                    <span className="bg-[#ef6a22] text-white text-xs font-bold px-2 py-0.5 rounded-full">{count}</span>
+                    <span className="bg-[#ef6a22] text-white text-xs font-bold px-2 py-0.5 rounded-full">{String(count)}</span>
                   </div>
                 ))}
                 {Object.keys(stats.cities).length === 0 && <p className="text-gray-500 text-sm">No live vehicles available.</p>}
