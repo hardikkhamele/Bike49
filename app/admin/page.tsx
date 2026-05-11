@@ -25,7 +25,7 @@ export default function AdminPanel() {
       setIsAuthenticated(true);
       localStorage.setItem('adminAuthBike49', 'true');
     } else {
-      alert('Invalid Login ID or PIN');
+      alert('Invalid Username or PIN');
     }
   };
 
@@ -212,7 +212,7 @@ export default function AdminPanel() {
           <form className="mt-8 space-y-6" onSubmit={handleLogin}>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1 uppercase tracking-widest text-xs">Login ID</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1 uppercase tracking-widest text-xs">Username</label>
                 <input
                   type="text"
                   required
