@@ -142,7 +142,7 @@ export default function Sell() {
           />
         </div>
         <div className="relative z-20 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-8">
-          <h1 className="text-5xl md:text-7xl font-light text-white mb-6 uppercase tracking-widest drop-shadow-lg">Sell Your Ride</h1>
+          <h1 className="text-4xl md:text-7xl font-light text-white mb-6 uppercase tracking-widest drop-shadow-lg">Sell Your Ride</h1>
           <p className="text-sm text-[#eef2f6] uppercase tracking-widest font-medium">
             Get the best price for your vehicle in minutes
           </p>

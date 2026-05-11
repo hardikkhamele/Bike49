@@ -25,7 +25,7 @@ export default function Home() {
         </div>
         
         <div className="relative z-20 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-light text-white mb-6 tracking-tight drop-shadow-lg animate-fade-in-up leading-tight">
+          <h1 className="text-5xl md:text-8xl font-light text-white mb-6 tracking-tight drop-shadow-lg animate-fade-in-up leading-tight">
             SELL YOUR BIKE. <br/><span className="text-[#eef2f6]">INSTANTLY.</span>
           </h1>
           <p className="text-xl md:text-2xl text-[#eef2f6] mb-12 drop-shadow-md font-light tracking-wide animate-fade-in-up delay-100 max-w-4xl mx-auto uppercase">
@@ -56,7 +56,7 @@ export default function Home() {
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
         <div className="max-w-5xl mx-auto px-4 text-center animate-fade-in-up">
           <h2 className="text-base font-semibold text-gray-400 mb-8 uppercase tracking-widest">Our Philosophy</h2>
-          <p className="text-5xl md:text-7xl text-[#051b3d] font-light leading-tight">
+          <p className="text-3xl md:text-7xl text-[#051b3d] font-light leading-tight">
             Uncompromising quality. <br/> Direct transactions. <br/>
             <span className="font-medium text-[#ef6a22]">The future of mobility.</span>
           </p>
@@ -68,12 +68,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-24 animate-fade-in-up">
             <h2 className="text-base font-semibold text-gray-400 mb-4 uppercase tracking-widest">Innovation</h2>
-            <p className="text-5xl md:text-6xl font-light text-[#051b3d] max-w-2xl mx-auto tracking-tight">Driven by Intelligence.</p>
+            <p className="text-4xl md:text-6xl font-light text-[#051b3d] max-w-2xl mx-auto tracking-tight">Driven by Intelligence.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {/* AI Price Estimator */}
-            <div className="bg-white p-16 shadow-sm hover:shadow-md transition-all duration-500 group animate-fade-in-up delay-100">
+            <div className="bg-white p-8 md:p-16 shadow-sm hover:shadow-md transition-all duration-500 group animate-fade-in-up delay-100">
               <div className="w-20 h-20 bg-[#f0f4f8] flex items-center justify-center mb-10 text-[#ef6a22]">
                 <Calculator size={40} strokeWidth={1.5} />
               </div>
@@ -85,7 +85,7 @@ export default function Home() {
             </div>
 
             {/* AI Recommendation */}
-            <div className="bg-white p-16 shadow-sm hover:shadow-md transition-all duration-500 group animate-fade-in-up delay-200">
+            <div className="bg-white p-8 md:p-16 shadow-sm hover:shadow-md transition-all duration-500 group animate-fade-in-up delay-200">
               <div className="w-20 h-20 bg-[#f0f4f8] flex items-center justify-center mb-10 text-[#ef6a22]">
                 <Lightbulb size={40} strokeWidth={1.5} />
               </div>
@@ -97,7 +97,7 @@ export default function Home() {
             </div>
 
             {/* AI Chatbot */}
-            <div className="bg-white p-16 shadow-sm hover:shadow-md transition-all duration-500 group animate-fade-in-up delay-300">
+            <div className="bg-white p-8 md:p-16 shadow-sm hover:shadow-md transition-all duration-500 group animate-fade-in-up delay-300">
               <div className="w-20 h-20 bg-[#f0f4f8] flex items-center justify-center mb-10 text-[#ef6a22]">
                 <MessageSquare size={40} strokeWidth={1.5} />
               </div>
@@ -116,7 +116,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-24 animate-fade-in-up">
             <h2 className="text-base font-semibold text-gray-400 mb-4 uppercase tracking-widest">Services</h2>
-            <p className="text-5xl md:text-6xl font-light text-[#051b3d] max-w-2xl mx-auto tracking-tight">Complete utility solutions.</p>
+            <p className="text-4xl md:text-6xl font-light text-[#051b3d] max-w-2xl mx-auto tracking-tight">Complete utility solutions.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
