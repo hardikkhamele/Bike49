@@ -220,71 +220,70 @@ export default function Buy() {
 
       {/* Modal for Bike Details */}
       {selectedBike && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity" onClick={() => setSelectedBike(null)}>
-          {/* Mobile Fixed Close Button */}
-          <button 
-            onClick={() => setSelectedBike(null)}
-            className="md:hidden fixed top-4 right-4 bg-[#ef6a22] text-white rounded-full p-3 hover:bg-[#d95714] transition-all z-[110] shadow-2xl hover:scale-110"
-          >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" /></svg>
-          </button>
-          
-          <div className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative rounded-xl mt-12 md:mt-0" onClick={e => e.stopPropagation()}>
-            {/* Desktop Absolute Close Button */}
+        <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center md:p-4 bg-black/60 backdrop-blur-sm transition-opacity" onClick={() => setSelectedBike(null)}>
+          <div className="bg-white max-w-4xl w-full max-h-[95vh] md:max-h-[90vh] overflow-y-auto shadow-2xl relative rounded-t-3xl md:rounded-xl flex flex-col" onClick={e => e.stopPropagation()}>
+            {/* Close Button */}
             <button 
               onClick={() => setSelectedBike(null)}
-              className="hidden md:flex absolute top-4 right-4 bg-gray-100 text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-all z-[110] shadow-sm hover:scale-110"
+              className="flex absolute md:fixed top-4 right-4 md:top-4 md:right-4 bg-white/90 backdrop-blur-sm text-gray-800 rounded-full p-2 hover:bg-gray-200 transition-all z-[110] shadow-md hover:scale-110"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
-            <div className="flex flex-col md:flex-row">
-              <div className="md:w-1/2 relative bg-gray-100 min-h-[300px] md:min-h-full">
+            <div className="flex flex-col md:flex-row flex-1">
+              <div className="md:w-1/2 relative bg-gray-100 h-[35vh] md:h-auto min-h-[250px] md:min-h-[400px]">
                 <img src={selectedBike.image} alt={selectedBike.name} className="w-full h-full object-cover absolute inset-0" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent md:hidden" />
+                <div className="absolute bottom-6 left-6 right-6 md:hidden text-white">
+                  <h2 className="text-2xl font-bold uppercase tracking-wider drop-shadow-lg">{selectedBike.name}</h2>
+                  <p className="text-2xl font-bold text-[#ef6a22] drop-shadow-lg mt-1">₹{selectedBike.price.toLocaleString()}</p>
+                </div>
               </div>
-              <div className="md:w-1/2 p-8">
-                <h2 className="text-3xl font-light text-[#051b3d] mb-2 uppercase tracking-wider">{selectedBike.name}</h2>
-                <p className="text-4xl font-light text-[#ef6a22] mb-6">₹{selectedBike.price.toLocaleString()}</p>
+              <div className="md:w-1/2 p-6 md:p-10 flex flex-col bg-white">
+                <div className="hidden md:block mb-8">
+                  <h2 className="text-3xl font-bold text-[#051b3d] mb-2 uppercase tracking-wider">{selectedBike.name}</h2>
+                  <p className="text-4xl font-bold text-[#ef6a22]">₹{selectedBike.price.toLocaleString()}</p>
+                </div>
                 
-                <div className="space-y-4 text-sm font-medium text-gray-600 uppercase tracking-widest">
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-400">Brand</span>
-                    <span className="text-[#051b3d]">{selectedBike.brand || selectedBike.name.split(' ')[0]}</span>
+                <div className="grid grid-cols-2 gap-3 mb-8 flex-1">
+                  <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col justify-center items-center text-center shadow-sm">
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Brand</span>
+                    <span className="text-sm font-bold text-[#051b3d] uppercase tracking-wide">{selectedBike.brand || selectedBike.name.split(' ')[0]}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-400">Year</span>
-                    <span className="text-[#051b3d]">{selectedBike.year}</span>
+                  <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col justify-center items-center text-center shadow-sm">
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Year</span>
+                    <span className="text-sm font-bold text-[#051b3d] uppercase tracking-wide">{selectedBike.year}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-400">Driven</span>
-                    <span className="text-[#051b3d]">{selectedBike.driven?.toLocaleString() || 0} km</span>
+                  <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col justify-center items-center text-center shadow-sm">
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Driven</span>
+                    <span className="text-sm font-bold text-[#051b3d] uppercase tracking-wide">{selectedBike.driven?.toLocaleString() || 0} km</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-400">Ownership</span>
-                    <span className="text-[#051b3d]">{selectedBike.ownership} Owner</span>
+                  <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col justify-center items-center text-center shadow-sm">
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Ownership</span>
+                    <span className="text-sm font-bold text-[#051b3d] uppercase tracking-wide">{selectedBike.ownership} Owner</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-400">Location</span>
-                    <span className="text-[#051b3d]">{selectedBike.city}</span>
+                  <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col justify-center items-center text-center shadow-sm">
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Location</span>
+                    <span className="text-sm font-bold text-[#051b3d] uppercase tracking-wide">{selectedBike.city}</span>
                   </div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-400">Type</span>
-                    <span className="text-[#051b3d]">{selectedBike.type}</span>
+                  <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col justify-center items-center text-center shadow-sm">
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Type</span>
+                    <span className="text-sm font-bold text-[#051b3d] uppercase tracking-wide">{selectedBike.type}</span>
                   </div>
                   {selectedBike.emission && (
-                    <div className="flex justify-between border-b border-gray-100 pb-2">
-                      <span className="text-gray-400">Emission</span>
-                      <span className="text-[#051b3d]">{selectedBike.emission}</span>
+                    <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col justify-center items-center text-center shadow-sm">
+                      <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Emission</span>
+                      <span className="text-sm font-bold text-[#051b3d] uppercase tracking-wide">{selectedBike.emission}</span>
                     </div>
                   )}
                   {selectedBike.variant && (
-                    <div className="flex justify-between border-b border-gray-100 pb-2">
-                      <span className="text-gray-400">Variant</span>
-                      <span className="text-[#051b3d]">{selectedBike.variant}</span>
+                    <div className="bg-gray-50 border border-gray-100 p-4 rounded-2xl flex flex-col justify-center items-center text-center shadow-sm">
+                      <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Variant</span>
+                      <span className="text-sm font-bold text-[#051b3d] uppercase tracking-wide">{selectedBike.variant}</span>
                     </div>
                   )}
                 </div>
                 
-                <a href={`https://wa.me/?text=${encodeURIComponent(`Hey! I'm interested to buy your ${selectedBike.name}`)}`} target="_blank" rel="noopener noreferrer" className="mt-8 py-4 bg-[#ef6a22] hover:bg-[#d95714] text-white font-semibold text-sm uppercase tracking-widest transition-colors text-center block w-full shadow-md">
+                <a href={`https://wa.me/?text=${encodeURIComponent(`Hey! I'm interested to buy your ${selectedBike.name}`)}`} target="_blank" rel="noopener noreferrer" className="mt-auto py-4 bg-[#ef6a22] hover:bg-[#d95714] text-white font-bold text-sm uppercase tracking-widest transition-colors text-center block w-full rounded-xl shadow-lg shadow-[#ef6a22]/30 active:scale-[0.98]">
                   Contact Seller
                 </a>
               </div>

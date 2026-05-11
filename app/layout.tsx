@@ -40,7 +40,7 @@ export default function RootLayout({
         </div>
 
         <Navbar />
-        <main className="flex-grow pt-16 relative z-10">
+        <main className="flex-grow pt-16 relative">
           {children}
         </main>
         <Footer />
