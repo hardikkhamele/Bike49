@@ -390,7 +390,8 @@ export default function AdminPanel() {
           <div className="text-center py-20">Loading vehicles...</div>
         ) : (
           <div className="bg-white shadow-sm overflow-hidden border border-gray-200 rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200">
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Vehicle</th>
@@ -448,6 +449,7 @@ export default function AdminPanel() {
                 )}
               </tbody>
             </table>
+            </div>
           </div>
         )}
 {showModal && selectedVehicle && (

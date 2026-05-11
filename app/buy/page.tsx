@@ -224,7 +224,7 @@ export default function Buy() {
           <div className="bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative" onClick={e => e.stopPropagation()}>
             <button 
               onClick={() => setSelectedBike(null)}
-              className="absolute top-4 right-4 bg-black/20 text-white rounded-full p-2 hover:bg-black/40 transition-colors z-10"
+              className="absolute top-4 right-4 bg-gray-200 text-gray-800 rounded-full p-2 hover:bg-gray-300 transition-colors z-10 shadow-sm"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
