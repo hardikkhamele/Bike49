@@ -220,10 +220,10 @@ export default function Buy() {
 
       {/* Modal for Bike Details */}
       {selectedBike && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity" onClick={() => setSelectedBike(null)}>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity" onClick={() => setSelectedBike(null)}>
           <button 
             onClick={() => setSelectedBike(null)}
-            className="fixed top-4 right-4 md:top-8 md:right-8 bg-[#ef6a22] text-white rounded-full p-3 hover:bg-[#d95714] transition-all z-[60] shadow-2xl hover:scale-110"
+            className="fixed top-4 right-4 md:top-8 md:right-8 bg-[#ef6a22] text-white rounded-full p-3 hover:bg-[#d95714] transition-all z-[110] shadow-2xl hover:scale-110"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
