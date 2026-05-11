@@ -115,7 +115,7 @@ export default function Sell() {
           setStep(1);
           setFormData({
             fullName: "", mobile: "", email: "", state: "", city: "",
-            vehicleType: "Bike", vehicleNumber: "", brand: "", model: "", variant: "", year: "", emission: "BSVI", kmDriven: "", rcFile: null, insuranceFile: null, price: "",
+            vehicleType: "Bike", vehicleNumber: "", brand: "", model: "", variant: "", year: "", emission: "BSVI", kmDriven: "", rcFile: null, insuranceFile: null, vehicleImageBase64: "", price: "",
           });
         }, 4000);
       } else {
