@@ -120,7 +120,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-1 bg-[#f4f5f7] p-14 animate-fade-in-up delay-100 flex flex-col shadow-sm">
+            <div className="lg:col-span-1 bg-[#f4f5f7] p-6 md:p-14 animate-fade-in-up delay-100 flex flex-col shadow-sm">
               <h3 className="text-3xl font-medium text-[#051b3d] mb-6 flex items-center uppercase tracking-widest">
                 <Calculator className="w-8 h-8 mr-4 text-[#ef6a22]" strokeWidth={1.5} />
                 EMI Calculator
@@ -134,7 +134,7 @@ export default function Home() {
             {/* Insurance & Challan */}
             <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8 animate-fade-in-up delay-200">
               {/* Buy Insurance */}
-              <div className="bg-[#051b3d] p-14 text-white flex flex-col justify-between overflow-hidden relative group shadow-sm">
+              <div className="bg-[#051b3d] p-6 md:p-14 text-white flex flex-col justify-between overflow-hidden relative group shadow-sm">
                 <div className="relative z-10 flex flex-col h-full">
                   <div>
                     <div className="w-20 h-20 border border-white/20 flex items-center justify-center mb-10 bg-white/5 group-hover:bg-[#ef6a22] transition-colors duration-500">
@@ -155,13 +155,13 @@ export default function Home() {
               </div>
 
               {/* Pay Challan */}
-              <div className="bg-[#f0f4f8] p-14 text-[#051b3d] flex flex-col justify-between overflow-hidden relative group shadow-sm">
+              <div className="bg-[#f0f4f8] p-6 md:p-14 text-[#051b3d] flex flex-col justify-between overflow-hidden relative group shadow-sm">
                 <div className="relative z-10 flex flex-col h-full">
                   <div>
                     <div className="w-20 h-20 border border-[#051b3d]/10 flex items-center justify-center mb-10 bg-white group-hover:border-[#ef6a22] transition-colors duration-500">
                       <FileText size={40} className="text-[#051b3d] group-hover:text-[#ef6a22] transition-colors duration-500" strokeWidth={1} />
                     </div>
-                    <h3 className="text-4xl font-light mb-6 uppercase tracking-widest">Pay Challan</h3>
+                    <h3 className="text-4xl font-light mb-6 uppercase tracking-widest">Check Challan</h3>
                     <p className="text-gray-600 mb-6 font-light text-xl leading-relaxed">Secure and instant traffic fine settlements. Enter details below to verify and pay.</p>
                     <p className="text-sm text-gray-500 mb-6">We support A.Vehicle History Check and B.RTO Check.</p>
                   </div>

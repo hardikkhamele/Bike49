@@ -19,12 +19,14 @@ export default function Sell() {
     vehicleType: "Bike",
     vehicleNumber: "",
     brand: "",
+    model: "",
     variant: "",
     year: "",
     emission: "BSVI",
     kmDriven: "",
     rcFile: null as File | null,
     insuranceFile: null as File | null,
+    vehicleImageBase64: "",
     price: "",
   });
 
@@ -33,6 +35,19 @@ export default function Sell() {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  
+  // Add handler for vehicle image upload
+  const handleVehicleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData(prev => ({ ...prev, vehicleImageBase64: reader.result as string }));
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,17 +81,50 @@ export default function Sell() {
     }, 1500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setStep(1);
-      setFormData({
-        fullName: "", mobile: "", email: "", state: "", city: "",
-        vehicleType: "Bike", vehicleNumber: "", brand: "", variant: "", year: "", emission: "BSVI", kmDriven: "", rcFile: null, insuranceFile: null, price: "",
+    
+    const payload = {
+      name: `${formData.brand} ${formData.model} ${formData.variant}`.trim(),
+      variant: formData.variant,
+      price: Number(formData.price),
+      year: Number(formData.year),
+      driven: Number(formData.kmDriven),
+      rc: formData.vehicleNumber,
+      ownership: "First",
+      rto: formData.vehicleNumber.substring(0, 4) || "Unknown",
+      city: formData.city,
+      image: formData.vehicleImageBase64 || "https://placehold.co/800x600/051b3d/ef6a22?text=Pending+Approval",
+      type: formData.vehicleType,
+      emission: formData.emission,
+      userName: formData.fullName,
+      userEmail: formData.email,
+      userMobile: formData.mobile
+    };
+
+    try {
+      const res = await fetch('/api/vehicles', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       });
-    }, 4000);
+      if (res.ok) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setStep(1);
+          setFormData({
+            fullName: "", mobile: "", email: "", state: "", city: "",
+            vehicleType: "Bike", vehicleNumber: "", brand: "", model: "", variant: "", year: "", emission: "BSVI", kmDriven: "", rcFile: null, insuranceFile: null, price: "",
+          });
+        }, 4000);
+      } else {
+        alert("Failed to submit details.");
+      }
+    } catch(err) {
+      console.error(err);
+      alert("Error submitting details.");
+    }
   };
 
   return (
@@ -179,7 +227,7 @@ export default function Sell() {
                   <div>
                     <label className="block text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Select Vehicle Type</label>
                     <div className="flex flex-wrap gap-4">
-                      {["Bike", "Scooty", "Ev Bike"].map((type) => (
+                      {["Bike", "EV", "Scooter"].map((type) => (
                         <label key={type} className={`cursor-pointer px-10 py-4 text-sm font-semibold uppercase tracking-widest ${formData.vehicleType === type ? "bg-[#ef6a22] border-[#ef6a22] text-white shadow-sm" : "bg-transparent border border-gray-300 text-gray-500 hover:border-[#051b3d] hover:text-[#051b3d]"} transition-all`}>
                           <input type="radio" name="vehicleType" value={type} checked={formData.vehicleType === type} onChange={handleChange} className="hidden" />
                           {type}
@@ -203,9 +251,30 @@ export default function Sell() {
                         <option value="Royal Enfield">ROYAL ENFIELD</option>
                         <option value="TVS">TVS</option>
                         <option value="Yamaha">YAMAHA</option>
+                        <option value="Suzuki">SUZUKI</option>
+                        <option value="KTM">KTM</option>
+                        <option value="Jawa">JAWA</option>
+                        <option value="Yezdi">YEZDI</option>
+                        <option value="Triumph">TRIUMPH</option>
+                        <option value="Harley-Davidson">HARLEY-DAVIDSON</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Ducati">DUCATI</option>
+                        <option value="Kawasaki">KAWASAKI</option>
+                        <option value="Husqvarna">HUSQVARNA</option>
+                        <option value="Aprilia">APRILIA</option>
+                        <option value="Vespa">VESPA</option>
                         <option value="Ather">ATHER</option>
                         <option value="Ola">OLA</option>
+                        <option value="Chetak">CHETAK</option>
+                        <option value="Vida">VIDA</option>
+                        <option value="Ampere">AMPERE</option>
+                        <option value="Revolt">REVOLT</option>
+                        <option value="Hero Electric">HERO ELECTRIC</option>
                       </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-500 uppercase tracking-widest mb-3">Model</label>
+                      <input type="text" name="model" value={formData.model} onChange={handleChange} required placeholder="e.g. CLASSIC 350" className="w-full bg-transparent border-b border-gray-300 px-0 py-4 text-[#051b3d] focus:border-[#ef6a22] outline-none uppercase text-base tracking-widest transition-all font-light" />
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-gray-500 uppercase tracking-widest mb-3">Variant</label>
@@ -254,6 +323,19 @@ export default function Sell() {
                         <span className="text-sm font-medium text-gray-500 uppercase tracking-widest truncate max-w-[200px]">
                           {formData.insuranceFile ? formData.insuranceFile.name : "NO FILE"}
                         </span>
+                      </div>
+                    </div>
+
+                    <div className="bg-transparent p-6 border border-gray-200">
+                      <label className="block text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Upload Vehicle Image</label>
+                      <div className="flex items-center gap-4">
+                        <label className="cursor-pointer px-6 py-3 border border-gray-300 hover:border-[#051b3d] hover:text-[#051b3d] text-gray-600 font-semibold text-sm uppercase tracking-widest transition-colors flex items-center gap-2">
+                          <FileText size={16} /> Choose File
+                          <input type="file" accept="image/*" onChange={handleVehicleImageChange} className="hidden" />
+                        </label>
+                        {formData.vehicleImageBase64 && (
+                          <img src={formData.vehicleImageBase64} alt="Preview" className="h-20 w-20 object-cover rounded" />
+                        )}
                       </div>
                     </div>
 

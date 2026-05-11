@@ -10,6 +10,8 @@ export interface Bike {
   city: string;
   image: string;
   type: string;
+  emission?: string;
+  verified?: boolean;
 }
 
 export const bikes: Bike[] = [
@@ -24,7 +26,9 @@ export const bikes: Bike[] = [
     rto: "MH49",
     city: "Nagpur",
     image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    type: "Retro",
+    type: "Bike",
+    emission: "BS6",
+    verified: true
   },
   {
     id: "b2",
@@ -37,7 +41,9 @@ export const bikes: Bike[] = [
     rto: "MH31",
     city: "Nagpur",
     image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    type: "Superbike",
+    type: "Bike",
+    emission: "BS6",
+    verified: true
   },
   {
     id: "b3",
@@ -51,6 +57,8 @@ export const bikes: Bike[] = [
     city: "Raipur",
     image: "https://images.unsplash.com/photo-1625442544837-14e4b523f20f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     type: "Scooter",
+    emission: "BS6",
+    verified: true
   },
   {
     id: "b4",
@@ -64,6 +72,8 @@ export const bikes: Bike[] = [
     city: "Pune",
     image: "https://images.unsplash.com/photo-1678129088737-2de74ceeb6b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     type: "EV",
+    emission: "Zero",
+    verified: true
   },
   {
     id: "b5",
@@ -76,7 +86,9 @@ export const bikes: Bike[] = [
     rto: "MH49",
     city: "Nagpur",
     image: "https://images.unsplash.com/photo-1614002613589-9e85ea15db9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    type: "Superbike",
+    type: "Bike",
+    emission: "BS6",
+    verified: true
   },
   {
     id: "b6",
@@ -89,7 +101,9 @@ export const bikes: Bike[] = [
     rto: "MP09",
     city: "Indore",
     image: "https://images.unsplash.com/photo-1599819811279-d50d66e921e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    type: "Normal",
+    type: "Bike",
+    emission: "BS4",
+    verified: true
   },
   {
     id: "b7",
@@ -103,6 +117,8 @@ export const bikes: Bike[] = [
     city: "Nagpur",
     image: "https://images.unsplash.com/photo-1601614920677-4b7754ebce01?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     type: "Scooter",
+    emission: "BS4",
+    verified: false
   },
   {
     id: "b8",
@@ -116,5 +132,157 @@ export const bikes: Bike[] = [
     city: "Pune",
     image: "https://images.unsplash.com/photo-1632126264624-912fb275813f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     type: "EV",
+    emission: "Zero",
+    verified: true
+  },
+  {
+    id: "b9",
+    name: "Hero Hunk",
+    price: 45000,
+    year: 2018,
+    driven: 35000,
+    rc: "2033",
+    ownership: "First",
+    rto: "MH31",
+    city: "Nagpur",
+    image: "https://placehold.co/800x600/051b3d/ef6a22?text=Hero+Hunk+Red",
+    type: "Bike",
+    emission: "BS4",
+    verified: true
+  },
+  {
+    id: "b10",
+    name: "Honda CB Twister",
+    price: 32000,
+    year: 2015,
+    driven: 42000,
+    rc: "2030",
+    ownership: "Second",
+    rto: "MH49",
+    city: "Pune",
+    image: "https://placehold.co/800x600/051b3d/ef6a22?text=Honda+CB+Twister+Yellow",
+    type: "Bike",
+    emission: "BS3",
+    verified: true
+  },
+  {
+    id: "b11",
+    name: "Honda CB Twister Black",
+    price: 30000,
+    year: 2014,
+    driven: 48000,
+    rc: "2029",
+    ownership: "First",
+    rto: "MP09",
+    city: "Indore",
+    image: "https://placehold.co/800x600/051b3d/ef6a22?text=Honda+CB+Twister+Black",
+    type: "Bike",
+    emission: "BS3",
+    verified: false
+  },
+  {
+    id: "b12",
+    name: "Honda Shine 125",
+    price: 55000,
+    year: 2019,
+    driven: 28000,
+    rc: "2034",
+    ownership: "First",
+    rto: "CG04",
+    city: "Raipur",
+    image: "https://placehold.co/800x600/051b3d/ef6a22?text=Honda+Shine",
+    type: "Bike",
+    emission: "BS4",
+    verified: true
+  },
+  {
+    id: "b13",
+    name: "Hero Honda Passion",
+    price: 25000,
+    year: 2010,
+    driven: 65000,
+    rc: "2025",
+    ownership: "Second",
+    rto: "MH31",
+    city: "Nagpur",
+    image: "https://placehold.co/800x600/051b3d/ef6a22?text=Hero+Honda+Passion",
+    type: "Bike",
+    emission: "BS3",
+    verified: false
+  },
+  {
+    id: "b14",
+    name: "Hero Pleasure",
+    price: 38000,
+    year: 2017,
+    driven: 22000,
+    rc: "2032",
+    ownership: "First",
+    rto: "MH12",
+    city: "Pune",
+    image: "https://placehold.co/800x600/051b3d/ef6a22?text=Hero+Pleasure",
+    type: "Scooter",
+    emission: "BS4",
+    verified: true
+  },
+  {
+    id: "b15",
+    name: "Hero Maestro",
+    price: 42000,
+    year: 2018,
+    driven: 19000,
+    rc: "2033",
+    ownership: "First",
+    rto: "MH49",
+    city: "Nagpur",
+    image: "https://placehold.co/800x600/051b3d/ef6a22?text=Hero+Maestro",
+    type: "Scooter",
+    emission: "BS4",
+    verified: true
+  },
+  {
+    id: "b16",
+    name: "Honda Navi",
+    price: 35000,
+    year: 2016,
+    driven: 15000,
+    rc: "2031",
+    ownership: "First",
+    rto: "MH31",
+    city: "Nagpur",
+    image: "https://placehold.co/800x600/051b3d/ef6a22?text=Honda+Navi",
+    type: "Scooter",
+    emission: "BS4",
+    verified: true
+  },
+  {
+    id: "b17",
+    name: "Honda Activa 5G",
+    price: 58000,
+    year: 2019,
+    driven: 12000,
+    rc: "2034",
+    ownership: "First",
+    rto: "MP09",
+    city: "Indore",
+    image: "https://placehold.co/800x600/051b3d/ef6a22?text=Honda+Activa+5G",
+    type: "Scooter",
+    emission: "BS4",
+    verified: true
+  },
+  {
+    id: "b18",
+    name: "TVS XL100",
+    price: 30000,
+    year: 2021,
+    driven: 8000,
+    rc: "2036",
+    ownership: "First",
+    rto: "CG04",
+    city: "Raipur",
+    image: "https://placehold.co/800x600/051b3d/ef6a22?text=TVS+XL100",
+    type: "Bike",
+    emission: "BS6",
+    verified: true
   }
 ];

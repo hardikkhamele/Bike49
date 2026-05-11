@@ -37,7 +37,10 @@ export default function ChallanForm() {
           </div>
         </div>
         <button className="w-full bg-[#ef6a22] text-white py-5 rounded-xl font-bold flex items-center justify-between px-8 hover:bg-[#d45a1d] transition-all shadow-lg mt-4">
-          <div className="flex items-center gap-3"><IndianRupee size={20} /><span className="text-lg">Pay Challan</span></div>
+          <div className="flex items-center gap-3"><IndianRupee size={20} />
+            <span className="text-lg">Check Challan</span>
+            <span className="text-xs font-light italic opacity-80">(Pay Challan feature will coming soon in future)</span>
+          </div>
           <div className="flex gap-1 bg-black/20 p-1.5 rounded-md">
             <div className="h-2 w-2 rounded-full bg-red-900/40"></div>
             <div className="h-2 w-2 rounded-full bg-yellow-900/40"></div>

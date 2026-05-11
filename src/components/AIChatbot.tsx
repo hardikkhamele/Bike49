@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 
 export default function AIChatbot() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     { id: 1, text: "Hi there! I'm the Bike49 AI Assistant. How can I help you today?", isBot: true },
   ]);
@@ -17,6 +17,22 @@ export default function AIChatbot() {
   useEffect(() => {
     scrollToBottom();
   }, [messages, isOpen]);
+
+  const faqs = [
+    { q: "How do I sell my bike?", a: "To sell your bike, click on the 'Sell' tab, fill out the details including your RC and vehicle images, and submit. Our team will verify and approve it." },
+    { q: "How is the expected price calculated?", a: "Our AI price predictor estimates the price based on your vehicle's brand, model year, and kilometers driven." },
+    { q: "Are the vehicles verified?", a: "Yes, we verify the RC, Insurance, and physical condition of the vehicles before listing them with a 'Verified' badge." },
+    { q: "Do you offer financing?", a: "Yes, you can use our EMI calculator to estimate your monthly payments. We partner with leading banks for two-wheeler loans." }
+  ];
+
+  const handleFAQClick = (faq: {q: string, a: string}) => {
+    const userMsg = { id: Date.now(), text: faq.q, isBot: false };
+    setMessages((prev) => [...prev, userMsg]);
+    
+    setTimeout(() => {
+      setMessages((prev) => [...prev, { id: Date.now() + 1, text: faq.a, isBot: true }]);
+    }, 600);
+  };
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,6 +96,19 @@ export default function AIChatbot() {
               </div>
             ))}
             <div ref={messagesEndRef} />
+          </div>
+
+          {/* Quick FAQs */}
+          <div className="px-4 pb-3 pt-2 bg-slate-900 flex gap-2 overflow-x-auto custom-scrollbar border-t border-slate-800">
+            {faqs.map((faq, i) => (
+              <button 
+                key={i}
+                onClick={() => handleFAQClick(faq)}
+                className="whitespace-nowrap px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-yellow-500 border border-yellow-500/30 rounded-full text-xs font-medium transition-colors"
+              >
+                {faq.q}
+              </button>
+            ))}
           </div>
 
           {/* Input Area */}
